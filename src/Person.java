@@ -34,20 +34,17 @@ public class Person {
 	 */
 	//set current year as prefix
 	Date d = new Date();
-	int year = d.getYear() + 1900;
+	int year = (d.getYear() + 1900) * 1000000;
 	private static AtomicLong idCounter = new AtomicLong();
 
-	public static String createID() //Makes sures that the id genereated is unique
-	{
-		return String.valueOf(idCounter.getAndIncrement());
-	}
+//	public static String createID() //Makes sures that the id genereated is unique
+//	{
+//		return String.valueOf(idCounter.getAndIncrement());
+//	}
 
-	public void generateID() //Generates the ID
+	public int generateID() //Generates the unique ID
 	{
-		String prefixID = String.valueOf(year);
-		String suffixID = createID();
-		String generatedID = prefixID + suffixID;
-		this._id = Integer.parseInt(generatedID);
+		return (int) (year + idCounter.getAndIncrement());
 	}
 
 	/**
