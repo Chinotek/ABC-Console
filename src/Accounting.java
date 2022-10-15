@@ -178,11 +178,11 @@ public class Accounting {
 
     public void addTeacher()
     {
-        addTeacher(TeacherInfo());
+        addTeacher(addTeach());
         System.out.println("Teacher Added");
     }
 
-    public Teacher TeacherInfo() //Gets teacher's information
+    public Teacher addTeach() //Gets teacher's information
     {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the First Name of the teacher: ");
