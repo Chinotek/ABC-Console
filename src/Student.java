@@ -151,7 +151,7 @@ public class Student extends Person
     public void displayStudentInfo()// Displays the attributes of the Student class
     {
         DisplayPerson();
-        System.out.printf("║ %11.2f ║ %-7s ║ %12.2f ║ %-11d ║ %-16d ║ %-13d ║%n",amountPaid, balance, totalAmount, numberOfNewModules , numberOfRepeatedModules, numberOfModules);
+        System.out.printf("║ %11.2f ║ %7s ║ %12.2f ║ %6d      ║ %8d         ║ %7d       ║%n",amountPaid, balance, totalAmount, numberOfNewModules , numberOfRepeatedModules, numberOfModules);
 //        System.out.println("Amount Paid: " + amountPaid);
 //        System.out.println("Balance: " + balance);
 //        System.out.println("Total Amount: " + totalAmount);

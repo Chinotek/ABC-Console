@@ -50,7 +50,7 @@ public class Accounting {
     }
 
     public void displayAllStudentsHeader() {
-        System.out.printf("╠════════════╬════════════╬══════════════╬════════╬═══════════╬════════════╬════════════╬═════════════════╬═════════╬═════╣%n");
+        System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬═════════════╬═════════╬══════════════╬═════════════╬══════════════════╬═══════════════╣%n");
     }
 
     public void displayAllZeroBalance() //Displays all students with zero balance
@@ -159,14 +159,14 @@ public class Accounting {
 
     public void DisplayPersonHeader()
     {
-        System.out.printf("║ %-9s ║ %-10s ║ %-13s ║ %-6s ║ %-9s ║ %10s ", "ID", "First Name", "Last Name", "Gender", "Address", "Phone");
+        System.out.printf("║ %6s     ║ %-10s ║ %11s   ║ %-6s ║ %9s   ║ %7s    ", "ID", "First Name", "Last Name", "Gender", "Address", "Phone");
     }
 
     public void viewAllTeachers() //Displays all teachers
     {
         DisplayPersonHeader();
-        System.out.printf("║ %-10s ║ %-15s ║ %-7s ║ %3s ║%n", "Department", "Designation", "Salary", "Hrs");
-        System.out.printf("╠═══════════╬════════════╬═══════════════╬════════╬═══════════╬════════════╬════════════╬═════════════════╬═════════╬═════╣%n");
+        System.out.printf("║ %-10s ║ %13s   ║ %7s  ║ %3s ║%n", "Department", "Designation", "Salary", "Hrs");
+        System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬════════════╬═════════════════╬══════════╬═════╣%n");
         for (Teacher entry : _teachers) {
             entry.displayTeacher();
         }

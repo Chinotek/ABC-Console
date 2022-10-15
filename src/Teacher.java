@@ -72,7 +72,7 @@ public class Teacher extends Person {
     public void displayTeacher() //Displays the attributes of the Teacher Class
     {
         DisplayPerson();
-        System.out.printf("║ %-10s ║ %-15s ║ %.2f ║ %3d ║%n", conDep[_department - 1], conDes[_designation - 1], _salary, _teachingHours);
+        System.out.printf("║ %-10s ║ %-15s ║ %8.2f ║ %-3d ║%n", conDep[_department - 1], conDes[_designation - 1], _salary, _teachingHours);
 //        System.out.println("Department: " + conDep[_department - 1] );
 //        System.out.println("Designation: " + conDes[_designation - 1]);
 //        System.out.println("Salary: " + _salary);
