@@ -166,7 +166,6 @@ public class Accounting {
         for (Teacher t : _teachers) {
             if (Id == t.getID()){
                 found = true;
-                t.calculateSalary();
                 System.out.println("Base Salary: " + 1200);
                 System.out.println("Teaching hours: " + t.getTeachingHours());
                 System.out.printf("OT = %.2f%n", t.getOt());

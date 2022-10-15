@@ -39,16 +39,16 @@ public class Main {
 		accounting.addTeacher(new Teacher("Reymart", "Aguinaldo", 1, "Manila", "9087273438", 2, 1, 17 ));
 
 		accounting.addStudent(new Student("Chino","Piscasio", 1, "Balintawak", "9163256789", 2, 2, 1270));
-		accounting.addStudent(new Student("Rezin","Corsino", 1, "Caloocan", "9456253452", 6, 0, 0));
-		accounting.addStudent(new Student("John","Pagtalunan", 1, "Bulacan", "9125236724", 6, 0, 0));
-		accounting.addStudent(new Student("Mark","Bardelomar", 1, "Manila", "9983296724", 6, 0, 0));
-		accounting.addStudent(new Student("Ivan","Sandigo", 1, "Recto", "9984298224", 6, 0, 0));
-		accounting.addStudent(new Student("Lim","Kim", 1, "Pasig", "9523981294", 6, 0, 0));
-		accounting.addStudent(new Student("Kang","Yap", 1, "Quezon City", "9598239824", 5, 1, 0));
-		accounting.addStudent(new Student("Gerykko","Manarang", 1, "Cavite", "9968239824", 5, 1, 0));
-		accounting.addStudent(new Student("Carmin","Insider", 2, "Mandaluyong", "9598536724", 2, 1, 0));
-		accounting.addStudent(new Student("Bob","Walker", 1, "Manila", "9083802724", 5, 1, 0));
-		accounting.addStudent(new Student("Luke","Dela Cruz", 1, "Sa Puso Mo", "9682928724", 5, 1, 0));
+		accounting.addStudent(new Student("Rezin","Corsino", 1, "Caloocan", "9456253452", 6, 0, 500));
+		accounting.addStudent(new Student("John","Pagtalunan", 1, "Bulacan", "9125236724", 6, 0, 500));
+		accounting.addStudent(new Student("Mark","Bardelomar", 1, "Manila", "9983296724", 6, 0, 800));
+		accounting.addStudent(new Student("Ivan","Sandigo", 1, "Recto", "9984298224", 6, 0, 2000));
+		accounting.addStudent(new Student("Lim","Kim", 1, "Pasig", "9523981294", 6, 0, 1200));
+		accounting.addStudent(new Student("Kang","Yap", 1, "Quezon City", "9598239824", 5, 1, 2735));
+		accounting.addStudent(new Student("Gerykko","Manarang", 1, "Cavite", "9968239824", 5, 1, 2735));
+		accounting.addStudent(new Student("Carmin","Insider", 2, "Mandaluyong", "9598536724", 2, 1, 1500));
+		accounting.addStudent(new Student("Bob","Walker", 1, "Manila", "9083802724", 5, 1, 2000));
+		accounting.addStudent(new Student("Luke","Dela Cruz", 1, "Sa Puso Mo", "9682928724", 5, 1, 3000));
 		int choice;
 		do {
 
