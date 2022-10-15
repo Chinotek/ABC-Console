@@ -4,12 +4,12 @@ import java.util.Map;
 public class Teacher extends Person {
     private int _department;
     private int _designation;
-    private double _salary = 1200f;
+    private float _salary = 1200f;
     private int _teachingHours;
-    private double _ma;
-    private double _ta;
-    private double _ha;
-    private double _ot;
+    private float _ma;
+    private float _ta;
+    private float _ha;
+    private float _ot;
     private String[] conDep = {"Business", "Computing"};
     private String[] conDes = {"Head of Faculty", "Coordinator", "Lecturer"};
 
@@ -18,6 +18,7 @@ public class Teacher extends Person {
         _department = department;
         _designation = designation;
         _teachingHours = teachingHours;
+        calculateSalary();
     }
 
     private Map<Integer, String> Designation = new HashMap<Integer, String>() //assign a specific number to a designation
@@ -33,7 +34,7 @@ public class Teacher extends Person {
         return _ma;
     }
 
-    public void set_Ma(double _ma) {
+    public void set_Ma(float _ma) {
         this._ma = _ma;
     }
 
@@ -41,15 +42,15 @@ public class Teacher extends Person {
         return _ta;
     }
 
-    public void setTa(double _ta) {
+    public void setTa(float _ta) {
         this._ta = _ta;
     }
 
-    public double getHa() {
+    public float  getHa() {
         return _ha;
     }
 
-    public void setHa(double _ha) {
+    public void setHa(float _ha) {
         this._ha = _ha;
     }
 
@@ -57,7 +58,7 @@ public class Teacher extends Person {
         return _ot;
     }
 
-    public void setOt(double _ot) {
+    public void setOt(float _ot) {
         this._ot = _ot;
     }
 
@@ -76,30 +77,30 @@ public class Teacher extends Person {
         if (_designation == 1) {
             //Head of Faculty
             if (_teachingHours > 8) {
-                _ot += (_teachingHours - 8) * 325;
+                _ot += (_teachingHours - 8) * 325f;
             } else {
                 _ot = 0;
             }
         } else if (_designation == 2) {
             //Coordinator
             if (_teachingHours > 13) {
-                _ot += (_teachingHours - 13) * 325;
+                _ot += (_teachingHours - 13) * 325f;
             } else {
                 _ot = 0;
             }
         } else if (_designation == 3) {
             //Lecturer
             if (_teachingHours > 18) {
-                _ot += (_teachingHours - 18) * 325;
+                _ot += (_teachingHours - 18) * 325f;
             } else {
                 _ot = 0;
             }
         }
 
         _salary += _ot;
-        _ha = _salary * 0.1;
-        _ma = _salary*0.03;
-        _ta = _salary*0.05;
+        _ha = _salary *  0.1f;
+        _ma = _salary * 0.03f;
+        _ta = _salary * 0.05f;
         _salary += _ha +_ma+_ta;
 
     }
