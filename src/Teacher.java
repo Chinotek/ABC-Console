@@ -39,29 +39,23 @@ public class Teacher extends Person {
     public void calculateSalary() // Calculates the salary of the teacher
     {
         double ha, ma, ta;
-        switch (_designation) {
-            case 1:
-                System.out.println("Head of Faculty");
-                if (_teachingHours > 8) {
-                    _salary += (_teachingHours - 8) * 325;
-                }
-
-                break;
-            case 2:
-                System.out.println("Coordinator");
-                if (_teachingHours > 13) {
-                    _salary += (_teachingHours - 13) * 325;
-                }
-                break;
-            case 3:
-                System.out.println("Lecturer");
-                if (_teachingHours > 18) {
-                    _salary += (_teachingHours - 18) * 325;
-                }
-                break;
-            default:
-                System.out.println("Invalid designation");
-                break;
+        if (_designation == 1) {
+            //Head of Faculty
+            if (_teachingHours > 8) {
+                _salary += (_teachingHours - 8) * 325;
+            }
+        } else if (_designation == 2) {
+            //Coordinator
+            if (_teachingHours > 13) {
+                _salary += (_teachingHours - 13) * 325;
+            }
+        } else if (_designation == 3) {
+            //Lecturer
+            if (_teachingHours > 18) {
+                _salary += (_teachingHours - 18) * 325;
+            }
+        } else {
+            System.out.println("Invalid designation");
         }
 
         ha = _salary*0.1;
