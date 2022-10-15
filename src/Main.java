@@ -17,15 +17,7 @@ public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Accounting accounting = new Accounting();
-//		enum Department {
-//			Business, Computing
-//		}
-//		enum Designation {
-//			//Head of faculty (HOF)
-//			//Coordinator (CO)
-//			//Lecturer (L)
-//			HOF, CO, L
-//		}
+
 		accounting.addTeacher(new Teacher("Paul", "Ocampo", 1, "Manila", "9532087238", 2, 3, 2 ));
 		accounting.addTeacher(new Teacher("John", "Anderson", 1, "Manila", "9745087238", 2, 3, 2 ));
 		accounting.addTeacher(new Teacher("Lee", "Brown", 1, "Manila", "9087232138", 2, 3, 8 ));
@@ -105,10 +97,12 @@ public class Main {
 					} else if (choice == 7) {
 						accounting.displayAllNonZeroBalance();
 						Pause();
+					} else {
+						if (choice != 8) {
+							System.out.println("Invalid Input");
+						}
 					}
-					else {
-						System.out.println("Invalid Input");
-					}
+
 				} while (choice != 8);
 
 
@@ -122,7 +116,7 @@ public class Main {
 					System.out.println("[2] Update Teacher");
 					System.out.println("[3] Delete Teacher");
 					System.out.println("[4] Calculate Salary");
-					System.out.println("[5] View All Teachers"); //better display
+					System.out.println("[5] View All Teachers");
 					System.out.println("[6] Exit");
 					System.out.print("Choice: ");
 					choice = scanner.nextInt();
@@ -154,9 +148,11 @@ public class Main {
 						Pause();
 						Clear();
 					} else {
-						System.out.println("Invalid Choice");
-						Pause();
-						Clear();
+						if (choice != 6) {
+							System.out.println("Invalid Choice");
+							Pause();
+							Clear();
+						}
 					}
 				} while (choice != 6);
 			} else if(choice == 3) {
