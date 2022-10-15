@@ -18,29 +18,29 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		Accounting accounting = new Accounting();
 
-		accounting.addTeacher(new Teacher("Paul", "Ocampo", 1, "Manila", "9532087238", 2, 3, 2 ));
+		accounting.addTeacher(new Teacher("Mike", "Martinez", 1, "Manila", "9532087238", 2, 3, 2 ));
 		accounting.addTeacher(new Teacher("John", "Anderson", 1, "Manila", "9745087238", 2, 3, 2 ));
 		accounting.addTeacher(new Teacher("Lee", "Brown", 1, "Manila", "9087232138", 2, 3, 8 ));
 		accounting.addTeacher(new Teacher("Thomas", "Lim", 1, "Manila", "9087252338", 2, 2, 16 ));
 		accounting.addTeacher(new Teacher("Walker", "White", 1, "Manila", "9087634238", 2, 3, 2 ));
-		accounting.addTeacher(new Teacher("Jackson", "Willis", 1, "Manila", "9087734238", 1, 3, 2 ));
+		accounting.addTeacher(new Teacher("Kate", "Dela Cruz", 2, "Quezon", "9087734238", 1, 3, 2 ));
 		accounting.addTeacher(new Teacher("Amanda", "Garcia", 2, "Manila", "9087233648", 2, 3, 2 ));
-		accounting.addTeacher(new Teacher("Jose", "Rizal", 1, "Manila", "9087273438", 2, 1, 17 ));
-		accounting.addTeacher(new Teacher("Leo", "Martinez", 1, "Manila", "9087273438", 2, 1, 17 ));
-		accounting.addTeacher(new Teacher("Pao", "Guiverra", 1, "Manila", "9087273438", 2, 1, 17 ));
+		accounting.addTeacher(new Teacher("Jose", "Rizal", 1, "Cavite", "9087273438", 2, 1, 17 ));
+		accounting.addTeacher(new Teacher("Leo", "Martinez", 1, "Caloocan", "9087273438", 2, 1, 17 ));
+		accounting.addTeacher(new Teacher("Pao", "Guiverra", 1, "Mandaluyong", "9087273438", 2, 1, 17 ));
 		accounting.addTeacher(new Teacher("Reymart", "Aguinaldo", 1, "Manila", "9087273438", 2, 1, 17 ));
 
 		accounting.addStudent(new Student("Chino","Piscasio", 1, "Balintawak", "9163256789", 2, 2, 1270));
 		accounting.addStudent(new Student("Rezin","Corsino", 1, "Caloocan", "9456253452", 6, 0, 500));
 		accounting.addStudent(new Student("John","Pagtalunan", 1, "Bulacan", "9125236724", 6, 0, 500));
 		accounting.addStudent(new Student("Mark","Bardelomar", 1, "Manila", "9983296724", 6, 0, 800));
-		accounting.addStudent(new Student("Ivan","Sandigo", 1, "Recto", "9984298224", 6, 0, 2000));
-		accounting.addStudent(new Student("Lim","Kim", 1, "Pasig", "9523981294", 6, 0, 1200));
+		accounting.addStudent(new Student("Shelley","Enarnacion", 2, "Recto", "9984298224", 6, 0, 2000));
+		accounting.addStudent(new Student("Kyla","Marie", 2, "Pasig", "9523981294", 6, 0, 1200));
 		accounting.addStudent(new Student("Kang","Yap", 1, "Quezon City", "9598239824", 5, 1, 2735));
-		accounting.addStudent(new Student("Gerykko","Manarang", 1, "Cavite", "9968239824", 5, 1, 2735));
-		accounting.addStudent(new Student("Carmin","Insider", 2, "Mandaluyong", "9598536724", 2, 1, 1500));
-		accounting.addStudent(new Student("Bob","Walker", 1, "Manila", "9083802724", 5, 1, 2000));
-		accounting.addStudent(new Student("Luke","Dela Cruz", 1, "Sa Puso Mo", "9682928724", 5, 1, 3000));
+		accounting.addStudent(new Student("Geryko","Manarang", 1, "Cavite", "9968239824", 5, 1, 1160));
+		accounting.addStudent(new Student("Beatriz","Perez", 2, "Mandaluyong", "9598536724", 2, 1, 1160));
+		accounting.addStudent(new Student("Bob","Walker", 1, "Manila", "9083802724", 5, 1, 2305));
+		accounting.addStudent(new Student("Luke","Dela Cruz", 1, "Manila", "9682928724", 5, 1, 2735));
 		int choice;
 		do {
 
