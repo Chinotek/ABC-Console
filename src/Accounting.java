@@ -85,37 +85,41 @@ public class Accounting {
     public void deleteStudent(int inputID) //Deletes student from list by ID
     {
         _students.removeIf(e -> (e.getID() == inputID));
+        System.out.println("Student Deleted Successfully");
     }
 
 
     public Student StudentInfo()//Gets student's information
     {
         Scanner scanner = new Scanner(System.in);
-        int newModules = 0;
         System.out.print("Enter the First Name of the Student: ");
         String firstName = scanner.nextLine();
         System.out.print("Enter the Last Name of the Student: ");
         String lastName = scanner.nextLine();
-        System.out.print("Enter the Gender of the Student [1]M|[2]F: ");
+        System.out.print("Enter the Gender of the Student [1]M | [2]F: ");
         int gender = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter the Phone Number of the Student: ");
         String phoneNo = scanner.nextLine();
         System.out.print("Enter the Address of the Student: ");
         String address = scanner.nextLine();
-        System.out.print("Enter the Number of Repeat Modules of the Student: ");
-        int repeatModules = scanner.nextInt();
-        int totalModules = repeatModules;
-        if (repeatModules < 3) {
-            do{
-                newModules = 0;
-                Main.Clear();
-                System.out.println("Enter the Number of New Modules of the Student: ");
-                newModules = scanner.nextInt();
-                totalModules += newModules;
-            }while(totalModules <=6);
-        }
-        Student student1 = new Student(firstName, lastName, gender, phoneNo, address, newModules, repeatModules);
+        int repeatModules;
+        int newModules = 0;
+        do {
+            System.out.print("Enter the Number of Repeat Modules of the Student: ");
+            repeatModules = scanner.nextInt();
+            int totalModules;
+            if (repeatModules < 3) {
+                do {
+                    totalModules = repeatModules;
+                    System.out.print("Enter the Number of New Modules of the Student: ");
+                    newModules = scanner.nextInt();
+                    scanner.nextLine();
+                    totalModules += newModules;
+                } while (totalModules > 6 || totalModules < 0);
+            }
+        } while (repeatModules > 3);
+        Student student1 = new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
         return student1;
     }
 
