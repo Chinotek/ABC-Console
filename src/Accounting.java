@@ -19,6 +19,7 @@ public class Accounting {
     public void updateStudent(int inputID, Student updatedInfo) //Updates student by ID with new information
     {
         _students.replaceAll( e -> e.getID() == inputID? updatedInfo : e);
+        System.out.println("Student updated successfully");
     }
 
     public void showBalanceStudent(int id) //Display Balance of a student from ID
@@ -28,9 +29,10 @@ public class Accounting {
                 s.computeNumberOfModules();
                 s.computeTotalAmount();
                 s.computeBalance();
-                System.out.println("Student ID: " + s.getID());
-                System.out.println("Student Name: " + s.getFirstName() + " " + s.getLastName());
-                System.out.println("Student Balance: " + s.getAmountBalance());
+                DisplayPersonHeader();
+                displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║%n", "Amount Paid", "Balance", "Total Amount", "", "", "");
+                System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬═════════════╬═════════╬══════════════╣%n");
+                s.displayBalance();
             }
         }
     }
@@ -44,20 +46,24 @@ public class Accounting {
                 int amount = scan.nextInt();
                 s.setAmountPaid(s.getAmountPaid() + amount);
                 s.computeBalance();
-                System.out.println("Your new balance is: " + s.getAmountBalance());
+                System.out.println("Fee Deposit Successful!");
             }
         }
     }
 
-    public void displayAllStudentsHeader() {
+    public void displayAllStudentsHeaderNeck() {
         System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬═════════════╬═════════╬══════════════╬═════════════╬══════════════════╬═══════════════╣%n");
     }
 
+    public void displayStudentBalanceHeader() {
+        DisplayPersonHeader();
+
+    }
     public void displayAllZeroBalance() //Displays all students with zero balance
     {
         DisplayPersonHeader();
-        System.out.printf("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n", "Amount Paid", "Balance", "Total Amount", "New Modules", "Repeated Modules", "Total Modules");
-        displayAllStudentsHeader();
+        displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n", "Amount Paid", "Balance", "Total Amount", "New Modules", "Repeated Modules", "Total Modules");
+        displayAllStudentsHeaderNeck();
         for (Student s : _students) {
             s.computeNumberOfModules();
             s.computeTotalAmount();
@@ -68,11 +74,15 @@ public class Accounting {
         }
     }
 
-    public void displayAllNonZeroBalance() //Displays all students with non zero balance
+    private static void displayAllStudentsHeader(String format, String Amount_Paid, String Balance, String Total_Amount, String New_Modules, String Repeated_Modules, String Total_Modules) {
+        System.out.printf(format, Amount_Paid, Balance, Total_Amount, New_Modules, Repeated_Modules, Total_Modules);
+    }
+
+    public void displayAllNonZeroBalance() //Displays all students with non-zero balance
     {
         DisplayPersonHeader();
-        System.out.printf("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n", "Amount Paid", "Balance", "Total Amount", "New Modules", "Repeated Modules", "Total Modules");
-        displayAllStudentsHeader();
+        displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n", "Amount Paid", "Balance", "Total Amount", "New Modules", "Repeated Modules", "Total Modules");
+        displayAllStudentsHeaderNeck();
         for (Student s : _students) {
             s.computeNumberOfModules();
             s.computeTotalAmount();
@@ -89,7 +99,7 @@ public class Accounting {
     }
 
 
-    public Student StudentInfo()//Gets student's information
+    public Student addStud()//Gets student's information
     {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the First Name of the Student: ");
@@ -120,15 +130,14 @@ public class Accounting {
             }
         } while (repeatModules > 3);
         return new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
-        return student1;
     }
 
 
     public void AddS()//Adds student to the list
     {
-        addStudent(StudentInfo());
+        addStudent(addStud());
         Main.Clear();
-        System.out.println("Student Added");
+        System.out.printf("Student Added with ID: %d%n", _students.get(_students.size() - 1).getID());
         Main.Pause();
     }
 
@@ -148,22 +157,39 @@ public class Accounting {
     public void deleteTeacher(int Id)  //Searches for teacher by ID and deletes the information
     {
         _teachers.removeIf(entry -> entry.getID() == Id);
+        System.out.println("Teacher Deleted Successfully");
     }
 
     public void calculateSalary(int Id) //Searches for teacher by ID and calculates the salary
     {
+        boolean found = false;
         for (Teacher t : _teachers) {
             if (Id == t.getID()){
+                found = true;
                 t.calculateSalary();
-                System.out.println("Salary Calculated");
-                System.out.println("Salary: " + t.getSalary());
+                System.out.println("Base Salary: " + 1200);
+                System.out.println("Teaching hours: " + t.getTeachingHours());
+                System.out.printf("OT = %.2f%n", t.getOt());
+                System.out.printf("HA = %.2f%n", t.getHa());
+                System.out.printf("MA = %.2f%n", t.getMa());
+                System.out.printf("TA = %.2f%n", t.getTa());
+                System.out.println("Net Salary is " + t.getSalary());
+//                DisplayPersonHeader();
+//                System.out.printf("║ %-10s ║ %13s   ║ %7s  ║ %3s ║%n", "Department", "Designation", "Salary", "Hrs");
+//                System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬════════════╬═════════════════╬══════════╬═════╣%n");
+//                t.displayTeacher();
+//                System.out.println("Salary Calculated");
+//                System.out.println("Salary: " + t.getSalary());
             }
+        }
+        if (!found){
+            System.out.println("Teacher Not Found");
         }
     }
 
     public void DisplayPersonHeader()
     {
-        System.out.printf("║ %6s     ║ %-10s ║ %11s   ║ %-6s ║ %9s   ║ %7s    ", "ID", "First Name", "Last Name", "Gender", "Address", "Phone");
+        displayAllStudentsHeader("║ %6s     ║ %-10s ║ %11s   ║ %-6s ║ %9s   ║ %7s    ", "ID", "First Name", "Last Name", "Gender", "Address", "Phone");
     }
 
     public void viewAllTeachers() //Displays all teachers
@@ -191,7 +217,7 @@ public class Accounting {
         System.out.print("Enter the Last Name of the teacher: ");
         String lastName = scanner.next();
         scanner.nextLine();
-        System.out.print("Enter the Gender of the teacher [1]M|[2]F: ");
+        System.out.print("Enter the Gender of the teacher [1]M | [2]F: ");
         int gender = scanner.nextInt();
         scanner.nextLine();
         System.out.print("Enter the Phone Number of the teacher: ");
@@ -207,6 +233,5 @@ public class Accounting {
         int teachingHours = scanner.nextInt();
 
         return new Teacher(firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
-        return teacher;
     }
 }

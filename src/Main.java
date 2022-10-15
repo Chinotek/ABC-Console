@@ -82,24 +82,26 @@ public class Main {
 					} else if (choice == 2) {
 						System.out.print("Enter the ID of the Student: ");
 						id = scanner.nextInt();
-						accounting.updateStudent(id, accounting.StudentInfo());
-						System.out.println("Sutdent Updated!");
+						accounting.updateStudent(id, accounting.addStud());
+						Pause();
 					} else if (choice == 3) {
 						System.out.print("Enter the ID of the student: ");
 						id = scanner.nextInt();
 						accounting.deleteStudent(id);
-						System.out.println("Student Deleted");
 						Pause();
 					} else if (choice == 4) {
 						System.out.print("Enter the ID of the student: ");
 						id = scanner.nextInt();
 						accounting.showBalanceStudent(id);
+						Pause();
 					} else if (choice == 5) {
 						System.out.print("Enter the ID of the student: ");
 						id = scanner.nextInt();
 						accounting.feeDeposit(id);
+						Pause();
 					} else if (choice == 6) {
 						accounting.displayAllZeroBalance();
+						Pause();
 					} else if (choice == 7) {
 						accounting.displayAllNonZeroBalance();
 						Pause();
@@ -127,22 +129,34 @@ public class Main {
 					Clear();
 					if (choice == 1) {
 						accounting.addTeacher();
+						Pause();
+						Clear();
 					} else if (choice == 2) {
 						System.out.print("Enter the ID of the teacher you want to update: ");
 						id = scanner.nextInt();
 						accounting.updateTeacher(id, accounting.addTeach());
+						Pause();
+						Clear();
 					} else if (choice == 3) {
 						System.out.print("Enter the ID of the teacher you want to delete: ");
 						id = scanner.nextInt();
 						accounting.deleteTeacher(id);
+						Pause();
+						Clear();
 					} else if (choice == 4) {
 						System.out.print("Enter the ID of teacher: ");
 						id = scanner.nextInt();
 						accounting.calculateSalary(id);
+						Pause();
+						Clear();
 					} else if (choice == 5) {
 						accounting.viewAllTeachers();
+						Pause();
+						Clear();
 					} else {
 						System.out.println("Invalid Choice");
+						Pause();
+						Clear();
 					}
 				} while (choice != 6);
 			} else if(choice == 3) {

@@ -145,8 +145,13 @@ public class Student extends Person
     }
 
     /**
-     * Display Function
+     * Display Functions
      * */
+
+    public void displayBalance() {
+        DisplayPerson();
+        System.out.printf("║ %11.2f ║ %7s ║ %12.2f ║%n",amountPaid, balance, totalAmount);
+    }
 
     public void displayStudentInfo()// Displays the attributes of the Student class
     {
@@ -159,5 +164,4 @@ public class Student extends Person
 //        System.out.println("Repeated Modules: " + numberOfRepeatedModules);
 //        System.out.println("Total Modules: " + numberOfModules);
     }
-
 }
