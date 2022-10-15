@@ -119,7 +119,7 @@ public class Accounting {
                 } while (totalModules > 6 || totalModules < 0);
             }
         } while (repeatModules > 3);
-        Student student1 = new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
+        return new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
         return student1;
     }
 
@@ -206,7 +206,7 @@ public class Accounting {
         System.out.print("Enter Number of Teaching Hours: ");
         int teachingHours = scanner.nextInt();
 
-        Teacher teacher = new Teacher(firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
+        return new Teacher(firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
         return teacher;
     }
 }
