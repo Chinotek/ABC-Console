@@ -22,11 +22,21 @@ public class Student extends Person
     private String[] selectedModules = new String[6];
     private int[] selectedModulesByNumber = new int[6];
 
-    public Student(int ID, String fName, String lName, int gender,String address, String pNumber, int newMods, int repeatMods, float amount) {
-        super(ID, fName, lName, gender, address, pNumber);
+    public Student(String fName, String lName, int gender,String address, String pNumber, int newMods, int repeatMods) {
+        super(fName, lName, gender, address, pNumber);
+        this.numberOfNewModules = newMods;
+        this.numberOfRepeatedModules = repeatMods;
+        this.amountPaid = 0;
+    }
+    /**
+     * Constructor for initalizing existing records
+     */
+    public Student(String fName, String lName, int gender,String address, String pNumber, int newMods, int repeatMods, float amount) {
+        super(fName, lName, gender, address, pNumber);
         this.numberOfNewModules = newMods;
         this.numberOfRepeatedModules = repeatMods;
         this.amountPaid = amount;
+
     }
 
     /**

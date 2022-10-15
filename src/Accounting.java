@@ -82,42 +82,40 @@ public class Accounting {
             }
         }
     }
-    public void removeStudent(int inputID) //Removes student from list by ID
+    public void deleteStudent(int inputID) //Deletes student from list by ID
     {
-        _students.removeIf(e -> e.getID() == inputID);
+        _students.removeIf(e -> (e.getID() == inputID));
     }
 
 
     public Student StudentInfo()//Gets student's information
     {
-        Person person = new Person(0, "", "", 0, "", "");
-        Student student = new Student(0, "", "", 0, "", "", 0, 0, 0);
         Scanner scanner = new Scanner(System.in);
         int newModules = 0;
-        person.generateID();
-        int id = person.getID();
         System.out.print("Enter the First Name of the Student: ");
-        String firstName = scanner.next();
-        scanner.nextLine();
+        String firstName = scanner.nextLine();
         System.out.print("Enter the Last Name of the Student: ");
-        String lastName = scanner.next();
-        scanner.nextLine();
+        String lastName = scanner.nextLine();
         System.out.print("Enter the Gender of the Student [1]M|[2]F: ");
         int gender = scanner.nextInt();
+        scanner.nextLine();
         System.out.print("Enter the Phone Number of the Student: ");
         String phoneNo = scanner.nextLine();
         System.out.print("Enter the Address of the Student: ");
-        String address = scanner.next();
-        scanner.nextLine();
+        String address = scanner.nextLine();
         System.out.print("Enter the Number of Repeat Modules of the Student: ");
         int repeatModules = scanner.nextInt();
+        int totalModules = repeatModules;
         if (repeatModules < 3) {
             do{
+                newModules = 0;
+                Main.Clear();
                 System.out.println("Enter the Number of New Modules of the Student: ");
-                newModules = scanner.nextInt();}while(newModules <=6);
+                newModules = scanner.nextInt();
+                totalModules += newModules;
+            }while(totalModules <=6);
         }
-        float amount = student.getAmountPaid();
-        Student student1 = new Student(id, firstName, lastName, gender, phoneNo, address, newModules, repeatModules, amount);
+        Student student1 = new Student(firstName, lastName, gender, phoneNo, address, newModules, repeatModules);
         return student1;
     }
 
@@ -125,7 +123,9 @@ public class Accounting {
     public void AddS()//Adds student to the list
     {
         addStudent(StudentInfo());
+        Main.Clear();
         System.out.println("Student Added");
+        Main.Pause();
     }
 
     /**
@@ -180,10 +180,7 @@ public class Accounting {
 
     public Teacher TeacherInfo() //Gets teacher's information
     {
-        Person person = new Person(0, "", "", 0, "", "");
         Scanner scanner = new Scanner(System.in);
-        person.generateID();
-        int id = person.getID();
         System.out.print("Enter the First Name of the teacher: ");
         String firstName = scanner.next();
         scanner.nextLine();
@@ -205,7 +202,7 @@ public class Accounting {
         System.out.print("Enter Number of Teaching Hours: ");
         int teachingHours = scanner.nextInt();
 
-        Teacher teacher = new Teacher(id, firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
+        Teacher teacher = new Teacher(firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
         return teacher;
     }
 }

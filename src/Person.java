@@ -6,8 +6,8 @@ public class Person {
 
 	private String[] _genCon = {"Male", "Female"};
 
-	public Person(int ID, String firstName, String lastName, int gender, String address, String phoneNumber) {
-		_id = ID;
+	public Person(String firstName, String lastName, int gender, String address, String phoneNumber) {
+		_id = generateID();
 		_firstName = firstName;
 		_lastName = lastName;
 		_gender = gender;
