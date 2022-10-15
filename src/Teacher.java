@@ -30,37 +30,8 @@ public class Teacher extends Person {
         }}
     };
 
-    public double getMa() {
-        return _ma;
-    }
 
-    public void set_Ma(float _ma) {
-        this._ma = _ma;
-    }
 
-    public double getTa() {
-        return _ta;
-    }
-
-    public void setTa(float _ta) {
-        this._ta = _ta;
-    }
-
-    public float  getHa() {
-        return _ha;
-    }
-
-    public void setHa(float _ha) {
-        this._ha = _ha;
-    }
-
-    public double getOt() {
-        return _ot;
-    }
-
-    public void setOt(float _ot) {
-        this._ot = _ot;
-    }
 
     public enum Designation {
         HeadOfFaculty,
@@ -72,7 +43,7 @@ public class Teacher extends Person {
     * Computational Functions
     **/
 
-    public void calculateSalary() // Calculates the salary of the teacher
+    public void calculateSalary()
     {
         if (_designation == 1) {
             //Head of Faculty
@@ -109,22 +80,33 @@ public class Teacher extends Person {
      * Display Function
      * */
 
-    public void displayTeacher() //Displays the attributes of the Teacher Class
+    public void displayTeacher()
     {
         DisplayPerson();
         System.out.printf("║ %-10s ║ %-15s ║ %8.2f ║ %-3d ║%n", conDep[_department - 1], conDes[_designation - 1], _salary, _teachingHours);
-//        System.out.println("Department: " + conDep[_department - 1] );
-//        System.out.println("Designation: " + conDes[_designation - 1]);
-//        System.out.println("Salary: " + _salary);
-//        System.out.println("Teaching Hours: " + _teachingHours);
     }
 
     /**
     * Getters
     **/
 
-    public int getDepartment() {
-        return _department;
+    public double getMa() {
+        return _ma;
+    }
+
+
+    public double getTa() {
+        return _ta;
+    }
+
+
+    public float  getHa() {
+        return _ha;
+    }
+
+
+    public double getOt() {
+        return _ot;
     }
 
     public int getDesignation() {
@@ -139,6 +121,10 @@ public class Teacher extends Person {
         return _teachingHours;
     }
 
+    public int getDepartment() {
+        return _department;
+    }
+
     /**
      * Setters
     **/
@@ -146,16 +132,29 @@ public class Teacher extends Person {
     public void setDepartment(int department) {
         _department = department;
     }
+    public void set_Ma(float _ma) {
+        this._ma = _ma;
+    }
+    public void setTa(float _ta) {
+        this._ta = _ta;
+    }
 
     public void setDesignation(int designation) {
         _designation = designation;
     }
 
+    public void setHa(float _ha) {
+        this._ha = _ha;
+    }
     public void setSalary(int salary) {
         _salary = salary;
     }
 
     public void setTeachingHours(int teachingHours) {
         _teachingHours = teachingHours;
+    }
+
+    public void setOt(float _ot) {
+        this._ot = _ot;
     }
 }
