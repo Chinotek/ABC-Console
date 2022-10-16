@@ -43,6 +43,13 @@ public class Student extends Person {
 
     }
 
+    public Student(int id, String fName, String lName, int gender, String address,
+                   String pNumber, int newMods, int repeatMods) {
+        super( id, fName, lName, gender, address, pNumber);
+        this.numberOfNewModules = newMods;
+        this.numberOfRepeatedModules = repeatMods;
+
+    }
     /**
      * Setters
      */

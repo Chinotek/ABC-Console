@@ -8,7 +8,6 @@ public class Person {
     private String[] _genCon = {"Male", "Female"};
 
     public Person(String firstName, String lastName, int gender, String address, String phoneNumber) {
-        boolean idGenerated = false;
         _id = generateID();
         _firstName = firstName;
         _lastName = lastName;
@@ -18,7 +17,6 @@ public class Person {
     }
 
     public Person(int id, String firstName, String lastName, int gender, String address, String phoneNumber) {
-        boolean idGenerated = false;
         _id = id;
         _firstName = firstName;
         _lastName = lastName;

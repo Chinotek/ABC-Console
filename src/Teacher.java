@@ -28,6 +28,7 @@ public class Teacher extends Person {
         _department = department;
         _designation = designation;
         _teachingHours = teachingHours;
+        calculateSalary();
     }
 
     /**

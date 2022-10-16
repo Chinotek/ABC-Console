@@ -96,7 +96,7 @@ public class Accounting {
     }
 
     //Displays all students with non-zero balance
-    public void displayAllNonZeroBalance() {
+    public void displayAllStudents(boolean all, boolean zero) {
         DisplayPersonHeader();
         displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n",
                 "Amount Paid", "Balance", "Total Amount",
@@ -106,7 +106,17 @@ public class Accounting {
             s.computeNumberOfModules();
             s.computeTotalAmount();
             s.computeBalance();
-            if (s.getAmountBalance() != 0) {
+            if (!all) {
+                if (zero) {
+                    if (s.getAmountBalance() == 0) {
+                        s.displayStudentInfo();
+                    }
+                } else {
+                    if (s.getAmountBalance() != 0) {
+                        s.displayStudentInfo();
+                    }
+                }
+            } else {
                 s.displayStudentInfo();
             }
         }
@@ -136,6 +146,39 @@ public class Accounting {
         int repeatModules;
         int newModules = 0;
         do {
+            System.out.print("Enter the Number of Repeat Modules of the Student (cannot be more than 2): ");
+            repeatModules = scanner.nextInt();
+            int totalModules;
+            if (repeatModules > 2) {
+                do {
+                    totalModules = repeatModules;
+                    System.out.print("Enter the Number of New Modules of the Student " +
+                                     "(total modules cannot be more than 6): ");
+                    newModules = scanner.nextInt();
+                    scanner.nextLine();
+                    totalModules += newModules;
+                } while (totalModules > 6 || totalModules < 0);
+            }
+        } while (repeatModules > 2);
+        return new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
+    }
+
+    public Student updateStud(int id) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the First Name of the Student: ");
+        String firstName = scanner.nextLine();
+        System.out.print("Enter the Last Name of the Student: ");
+        String lastName = scanner.nextLine();
+        System.out.print("Enter the Gender of the Student [1]M | [2]F: ");
+        int gender = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Enter the Phone Number of the Student: ");
+        String phoneNo = scanner.nextLine();
+        System.out.print("Enter the Address of the Student: ");
+        String address = scanner.nextLine();
+        int repeatModules;
+        int newModules = 0;
+        do {
             System.out.print("Enter the Number of Repeat Modules of the Student: ");
             repeatModules = scanner.nextInt();
             int totalModules;
@@ -149,7 +192,9 @@ public class Accounting {
                 } while (totalModules > 6 || totalModules < 0);
             }
         } while (repeatModules > 3);
-        return new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
+
+        return new Student(id, firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
+
     }
 
 
@@ -247,8 +292,35 @@ public class Accounting {
         int teachingHours = scanner.nextInt();
 
         return new Teacher(firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
-        }
     }
+
+    public Teacher updateTeach(int id) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the First Name of the teacher: ");
+        String firstName = scanner.next();
+        scanner.nextLine();
+        System.out.print("Enter the Last Name of the teacher: ");
+        String lastName = scanner.next();
+        scanner.nextLine();
+        System.out.print("Enter the Gender of the teacher [1]M | [2]F: ");
+        int gender = scanner.nextInt();
+        scanner.nextLine();
+        System.out.print("Enter the Phone Number of the teacher: ");
+        String phoneNo = scanner.nextLine();
+        System.out.print("Enter the Address of the teacher: ");
+        String address = scanner.next();
+        scanner.nextLine();
+        System.out.print("[1] for Computing \n[2] for Business \nEnter the department of the teacher: ");
+        int department = scanner.nextInt();
+        System.out.print("[1] Head of Faculty\n[2] Coordinator\n[3] Lecturer\nEnter the designation of the teacher: ");
+        int designation = scanner.nextInt();
+        System.out.print("Enter Number of Teaching Hours: ");
+        int teachingHours = scanner.nextInt();
+
+        return new Teacher(id, firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
+
+    }
+
     public void checkId(int id, boolean delete, boolean teacher) {
         boolean found = false;
         if (teacher) {
@@ -257,6 +329,7 @@ public class Accounting {
                     if (id == t.getID()) {
                         found = true;
                         deleteTeacher(id);
+                        break;
                     }
                 }
                 if (!found) {
@@ -267,7 +340,7 @@ public class Accounting {
                     if (id == t.getID()) {
                         found = true;
                         updateTeacher(id, updateTeach(id));
-                        System.out.println("Teacher Updated");
+                        break;
                     }
                 }
                 if (!found) {
@@ -279,7 +352,8 @@ public class Accounting {
                 for (Student s : _students) {
                     if (id == s.getID()) {
                         found = true;
-                        deleteTeacher(id);
+                        deleteStudent(id);
+                        break;
                     }
                 }
                 if (!found) {
@@ -289,8 +363,8 @@ public class Accounting {
                 for (Student s : _students) {
                     if (id == s.getID()) {
                         found = true;
-                        updateTeacher(id, updateTeach(id));
-                        System.out.println("Student Updated");
+                        updateStudent(id, updateStud(id));
+                        break;
                     }
                 }
                 if (!found) {
