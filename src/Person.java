@@ -21,7 +21,8 @@ public class Person {
 	//Displays the attributes of the class Person
 	public void DisplayPerson()
 	{
-		System.out.printf("║ %-10d ║ %-10s ║ %-13s ║ %-6s ║ %-11s ║ %10s ", _id, _firstName, _lastName, _genCon[_gender - 1], _address, _phoneNo);
+		System.out.printf("║ %-10d ║ %-10s ║ %-13s ║ %-6s ║ %-11s ║ %10s ",
+							_id, _firstName, _lastName, _genCon[_gender - 1], _address, _phoneNo);
 	}
 
 	/**

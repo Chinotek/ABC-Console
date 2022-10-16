@@ -40,8 +40,10 @@ public class Accounting {
 
     private void displayStudentBalanceOnly() {
         DisplayPersonHeader();
-        displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║%n", "Amount Paid", "Balance", "Total Amount", "", "", "");
-        System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬═════════════╬═════════╬══════════════╣%n");
+        displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║%n", "Amount Paid", "Balance",
+                            "Total Amount", "", "", "");
+        System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬" +
+                          "═════════════╬═════════╬══════════════╣%n");
     }
 
     //Gets the amount paid of the student
@@ -67,7 +69,8 @@ public class Accounting {
     }
 
     public void displayAllStudentsHeaderNeck() {
-        System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬═════════════╬═════════╬══════════════╬═════════════╬══════════════════╬═══════════════╣%n");
+        System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬" +
+                          "═════════════╬═════════╬══════════════╬═════════════╬══════════════════╬═══════════════╣%n");
     }
 
     public void displayStudentBalanceHeader() {
@@ -78,7 +81,9 @@ public class Accounting {
     public void displayAllZeroBalance()
     {
         DisplayPersonHeader();
-        displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n", "Amount Paid", "Balance", "Total Amount", "New Modules", "Repeated Modules", "Total Modules");
+        displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n",
+                            "Amount Paid", "Balance", "Total Amount",
+                            "New Modules", "Repeated Modules", "Total Modules");
         displayAllStudentsHeaderNeck();
         for (Student s : _students) {
             s.computeNumberOfModules();
@@ -90,7 +95,8 @@ public class Accounting {
         }
     }
 
-    private static void displayAllStudentsHeader(String format, String Amount_Paid, String Balance, String Total_Amount, String New_Modules, String Repeated_Modules, String Total_Modules) {
+    private static void displayAllStudentsHeader(String format, String Amount_Paid, String Balance, String Total_Amount,
+                                                 String New_Modules, String Repeated_Modules, String Total_Modules) {
         System.out.printf(format, Amount_Paid, Balance, Total_Amount, New_Modules, Repeated_Modules, Total_Modules);
     }
 
@@ -98,7 +104,9 @@ public class Accounting {
     public void displayAllNonZeroBalance()
     {
         DisplayPersonHeader();
-        displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n", "Amount Paid", "Balance", "Total Amount", "New Modules", "Repeated Modules", "Total Modules");
+        displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n",
+                "Amount Paid", "Balance", "Total Amount",
+                "New Modules", "Repeated Modules", "Total Modules");
         displayAllStudentsHeaderNeck();
         for (Student s : _students) {
             s.computeNumberOfModules();
@@ -206,7 +214,9 @@ public class Accounting {
 
     public void DisplayPersonHeader()
     {
-        displayAllStudentsHeader("║ %6s     ║ %-10s ║ %11s   ║ %-6s ║ %9s   ║ %7s    ", "ID", "First Name", "Last Name", "Gender", "Address", "Phone");
+        displayAllStudentsHeader("║ %6s     ║ %-10s ║ %11s   ║ %-6s ║ %9s   ║ %7s    ",
+                "ID", "First Name", "Last Name", "Gender",
+            "Address", "Phone");
     }
 
     //Displays all teachers
@@ -214,7 +224,8 @@ public class Accounting {
     {
         DisplayPersonHeader();
         System.out.printf("║ %-10s ║ %13s   ║ %7s  ║ %3s ║%n", "Department", "Designation", "Salary", "Hrs");
-        System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬════════════╬═════════════════╬══════════╬═════╣%n");
+        System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬" +
+                          "════════════╬═════════════════╬══════════╬═════╣%n");
         for (Teacher entry : _teachers) {
             entry.displayTeacher();
         }

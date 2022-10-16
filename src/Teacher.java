@@ -13,30 +13,13 @@ public class Teacher extends Person {
     private String[] conDep = {"Business", "Computing"};
     private String[] conDes = {"Head of Faculty", "Coordinator", "Lecturer"};
 
-    public Teacher(String firstName, String lastName, int gender, String address, String phoneNumber, int department, int designation, int teachingHours) {
+    public Teacher(String firstName, String lastName, int gender, String address,
+                   String phoneNumber, int department, int designation, int teachingHours) {
         super(firstName, lastName, gender, address, phoneNumber);
         _department = department;
         _designation = designation;
         _teachingHours = teachingHours;
         calculateSalary();
-    }
-
-    private Map<Integer, String> Designation = new HashMap<Integer, String>() //assign a specific number to a designation
-    {
-        {{
-            put(1, "HOF");
-            put(2, "CO");
-            put(3, "L");
-        }}
-    };
-
-
-
-
-    public enum Designation {
-        HeadOfFaculty,
-        Coordinator,
-        Lecturer
     }
 
     /**
@@ -83,7 +66,8 @@ public class Teacher extends Person {
     public void displayTeacher()
     {
         DisplayPerson();
-        System.out.printf("║ %-10s ║ %-15s ║ %8.2f ║ %-3d ║%n", conDep[_department - 1], conDes[_designation - 1], _salary, _teachingHours);
+        System.out.printf("║ %-10s ║ %-15s ║ %8.2f ║ %-3d ║%n",
+                            conDep[_department - 1], conDes[_designation - 1], _salary, _teachingHours);
     }
 
     /**
