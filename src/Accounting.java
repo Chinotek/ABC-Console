@@ -147,9 +147,10 @@ public class Accounting {
         int newModules = 0;
         int totalModules = 0;
         do {
-            System.out.print("Enter the Number of Repeat Modules of the Student (cannot be more than 2): ");
+            System.out.print("Enter the Number of Repeat Modules of the Student: ");
             repeatModules = scanner.nextInt();
-            if (repeatModules < 3) {
+            scanner.nextLine();
+            if (repeatModules < 3 && repeatModules >= 0) {
                 do {
                     totalModules = repeatModules;
                     System.out.print("Enter the Number of New Modules of the Student " +
@@ -159,7 +160,7 @@ public class Accounting {
                     totalModules += newModules;
                 } while (totalModules > 6 || totalModules < 0);
             }
-        } while (repeatModules < 3 && totalModules > 6);
+        } while (repeatModules > 6 || repeatModules < 0);
         return new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
     }
 
