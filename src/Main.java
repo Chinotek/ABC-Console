@@ -150,13 +150,13 @@ public class Main {
                     } else if (choice == 2) {
                         System.out.print("Enter the ID of the teacher you want to update: ");
                         id = scanner.nextInt();
-                        accounting.updateTeacher(id, accounting.addTeach());
+                        accounting.checkId(id, false, true);
                         Pause();
                         Clear();
                     } else if (choice == 3) {
                         System.out.print("Enter the ID of the teacher you want to delete: ");
                         id = scanner.nextInt();
-                        accounting.deleteTeacher(id);
+                        accounting.checkId(id, true, true);
                         Pause();
                         Clear();
                     } else if (choice == 4) {

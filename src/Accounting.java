@@ -247,5 +247,56 @@ public class Accounting {
         int teachingHours = scanner.nextInt();
 
         return new Teacher(firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
+        }
+    }
+    public void checkId(int id, boolean delete, boolean teacher) {
+        boolean found = false;
+        if (teacher) {
+            if (delete) {
+                for (Teacher t : _teachers) {
+                    if (id == t.getID()) {
+                        found = true;
+                        deleteTeacher(id);
+                    }
+                }
+                if (!found) {
+                    System.out.println("Teacher Not Found");
+                }
+            } else {
+                for (Teacher t : _teachers) {
+                    if (id == t.getID()) {
+                        found = true;
+                        updateTeacher(id, updateTeach(id));
+                        System.out.println("Teacher Updated");
+                    }
+                }
+                if (!found) {
+                    System.out.println("Teacher Not Found");
+                }
+            }
+        } else {
+            if (delete) {
+                for (Student s : _students) {
+                    if (id == s.getID()) {
+                        found = true;
+                        deleteTeacher(id);
+                    }
+                }
+                if (!found) {
+                    System.out.println("Student Not Found");
+                }
+            } else {
+                for (Student s : _students) {
+                    if (id == s.getID()) {
+                        found = true;
+                        updateTeacher(id, updateTeach(id));
+                        System.out.println("Student Updated");
+                    }
+                }
+                if (!found) {
+                    System.out.println("Student Not Found");
+                }
+            }
+        }
     }
 }

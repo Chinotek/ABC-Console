@@ -22,6 +22,14 @@ public class Teacher extends Person {
         calculateSalary();
     }
 
+    public Teacher(int id, String firstName, String lastName, int gender, String address,
+                   String phoneNumber, int department, int designation, int teachingHours) {
+        super(id, firstName, lastName, gender, address, phoneNumber);
+        _department = department;
+        _designation = designation;
+        _teachingHours = teachingHours;
+    }
+
     /**
      * Computational Functions
      **/
@@ -30,21 +38,21 @@ public class Teacher extends Person {
         if (_designation == 1) {
             //Head of Faculty
             if (_teachingHours > 8) {
-                _ot += (_teachingHours - 8) * 325f;
+                _ot = (_teachingHours - 8) * 325f;
             } else {
                 _ot = 0;
             }
         } else if (_designation == 2) {
             //Coordinator
             if (_teachingHours > 13) {
-                _ot += (_teachingHours - 13) * 325f;
+                _ot = (_teachingHours - 13) * 325f;
             } else {
                 _ot = 0;
             }
         } else if (_designation == 3) {
             //Lecturer
             if (_teachingHours > 18) {
-                _ot += (_teachingHours - 18) * 325f;
+                _ot = (_teachingHours - 18) * 325f;
             } else {
                 _ot = 0;
             }
