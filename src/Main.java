@@ -44,7 +44,7 @@ public class Main {
 		int choice;
 		do {
 
-			System.out.println("Welcome to the Management System");
+			System.out.println("Welcome to the ABC College Management System");
 			System.out.println("Please select an option from the choices below:");
 			System.out.println("[1] Student");
 			System.out.println("[2] Teacher");
@@ -156,7 +156,7 @@ public class Main {
 					}
 				} while (choice != 6);
 			} else if(choice == 3) {
-				System.out.println("Thank you for using the Management System");
+				System.out.println("Thank you for using the ABC College Management System");
 				System.exit(0);
 			} else {
 				System.out.println("Invalid Choice");
