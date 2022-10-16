@@ -18,6 +18,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Accounting accounting = new Accounting();
 
+        /**
+         * Pre-existing entries
+         * */
         accounting.addTeacher(new Teacher("Mike", "Martinez", 1, "Manila",
                 "9532087238", 2, 3, 2));
         accounting.addTeacher(new Teacher("John", "Anderson", 1, "Manila",
@@ -63,6 +66,11 @@ public class Main {
                 "9083802724", 5, 1, 2305));
         accounting.addStudent(new Student("Luke", "Dela Cruz", 1, "Manila",
                 "9682928724", 5, 1, 2735));
+
+        /**
+         * Main Menu
+         * */
+
         int choice;
         do {
 

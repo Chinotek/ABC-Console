@@ -7,6 +7,10 @@ public class Person {
 
     private String[] _genCon = {"Male", "Female"};
 
+    /**
+     * Constructors
+     * */
+
     public Person(String firstName, String lastName, int gender, String address, String phoneNumber) {
         _id = generateID();
         _firstName = firstName;
@@ -28,6 +32,7 @@ public class Person {
     /**
      * Display Function
      */
+
     //Displays the attributes of the class Person
     public void DisplayPerson() {
         System.out.printf("║ %-10d ║ %-10s ║ %-13s ║ %-6s ║ %-11s ║ %10s ",
@@ -37,6 +42,7 @@ public class Person {
     /**
      * Generate Unique ID
      */
+
     //set current year as prefix
     Date d = new Date();
     int year = (d.getYear() + 1900) * 1000000;
@@ -50,6 +56,7 @@ public class Person {
     /**
      * Getters
      */
+
     public int getID() {
         return _id;
     }

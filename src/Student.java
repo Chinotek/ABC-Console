@@ -96,6 +96,7 @@ public class Student extends Person {
     /**
      * Getters
      */
+
     public float getAmountBalance() {
         return this.balance;
     }
@@ -127,6 +128,7 @@ public class Student extends Person {
     /**
      * Computational Functions
      */
+
     //Computes the total amount to be paid
     public void computeTotalAmount() {
         subTotalNewModules = 525 * numberOfNewModules;

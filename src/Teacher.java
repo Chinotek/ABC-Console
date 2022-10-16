@@ -13,6 +13,10 @@ public class Teacher extends Person {
     private String[] conDep = {"Business", "Computing"};
     private String[] conDes = {"Head of Faculty", "Coordinator", "Lecturer"};
 
+    /**
+     * Constructors
+     * */
+
     public Teacher(String firstName, String lastName, int gender, String address,
                    String phoneNumber, int department, int designation, int teachingHours) {
         super(firstName, lastName, gender, address, phoneNumber);

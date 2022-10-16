@@ -9,7 +9,8 @@ public class Accounting {
 
     /**
      * Student Management Functions
-     **/
+     */
+
     //Adds student to the list
     public void addStudent(Student student) {
         _students.add(student);
@@ -30,8 +31,10 @@ public class Accounting {
                 s.computeBalance();
                 displayStudentBalanceOnly();
                 s.displayBalance();
+                return;
             }
         }
+        System.out.println("Student not found");
     }
 
     private void displayStudentBalanceOnly() {
@@ -129,7 +132,7 @@ public class Accounting {
     }
 
 
-    //Gets student's information
+    //Gets student's information and add to the list
     public Student addStud() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the First Name of the Student: ");
@@ -211,6 +214,7 @@ public class Accounting {
     /**
      * Teacher Management Functions
      */
+
     //Adds teacher to the list
     public void addTeacher(Teacher teacher) {
         _teachers.add(teacher);
@@ -264,6 +268,7 @@ public class Accounting {
         }
     }
 
+    //add teacher to the list
     public void addTeacher() {
         addTeacher(addTeach());
         System.out.println("Teacher Added");
@@ -296,6 +301,7 @@ public class Accounting {
         return new Teacher(firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
     }
 
+    //get new information and update existing teacher information by id
     public Teacher updateTeach(int id) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the First Name of the teacher: ");
@@ -323,6 +329,11 @@ public class Accounting {
 
     }
 
+    /**
+     * Entry Validation
+     * */
+
+    //checks if ID exists in the lists and decides whether to add an entry to the list or update an entry
     public void checkId(int id, boolean delete, boolean teacher) {
         boolean found = false;
         if (teacher) {
