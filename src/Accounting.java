@@ -29,25 +29,36 @@ public class Accounting {
                 s.computeNumberOfModules();
                 s.computeTotalAmount();
                 s.computeBalance();
-                DisplayPersonHeader();
-                displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║%n", "Amount Paid", "Balance", "Total Amount", "", "", "");
-                System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬═════════════╬═════════╬══════════════╣%n");
+                displayStudentBalanceOnly();
                 s.displayBalance();
             }
         }
     }
 
+    private void displayStudentBalanceOnly() {
+        DisplayPersonHeader();
+        displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║%n", "Amount Paid", "Balance", "Total Amount", "", "", "");
+        System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬═════════════╬═════════╬══════════════╣%n");
+    }
+
     public void feeDeposit(int id) //Gets the amount paid of the student
     {
+        boolean found = false;
         Scanner scan = new Scanner(System.in);
         for (Student s : _students) {
             if (id == s.getID()){
+                displayStudentBalanceOnly();
+                s.displayBalance();
                 System.out.print("Enter Amount of Payment: ");
                 int amount = scan.nextInt();
                 s.setAmountPaid(s.getAmountPaid() + amount);
                 s.computeBalance();
                 System.out.println("Fee Deposit Successful!");
+                found = true;
             }
+        }
+        if (!found) {
+            System.out.println("Student not found");
         }
     }
 
