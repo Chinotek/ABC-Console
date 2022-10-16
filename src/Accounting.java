@@ -149,7 +149,7 @@ public class Accounting {
             System.out.print("Enter the Number of Repeat Modules of the Student (cannot be more than 2): ");
             repeatModules = scanner.nextInt();
             int totalModules;
-            if (repeatModules > 2) {
+            if (repeatModules < 2) {
                 do {
                     totalModules = repeatModules;
                     System.out.print("Enter the Number of New Modules of the Student " +
@@ -159,10 +159,11 @@ public class Accounting {
                     totalModules += newModules;
                 } while (totalModules > 6 || totalModules < 0);
             }
-        } while (repeatModules > 2);
+        } while (repeatModules < 2);
         return new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
     }
 
+    //get new information and update existing student record by id
     public Student updateStud(int id) {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the First Name of the Student: ");
