@@ -157,7 +157,7 @@ public class Accounting {
                 do {
                     totalModules = repeatModules;
                     System.out.print("Enter the Number of New Modules of the Student " +
-                                     "(total modules cannot be more than 6): ");
+                            "(total modules cannot be more than 6): ");
                     newModules = scanner.nextInt();
                     scanner.nextLine();
                     totalModules += newModules;
@@ -331,7 +331,7 @@ public class Accounting {
 
     /**
      * Entry Validation
-     * */
+     */
 
     //checks if ID exists in the lists and decides whether to add an entry to the list or update an entry
     public void checkId(int id, boolean delete, boolean teacher) {

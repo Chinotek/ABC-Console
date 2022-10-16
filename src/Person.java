@@ -9,7 +9,7 @@ public class Person {
 
     /**
      * Constructors
-     * */
+     */
 
     public Person(String firstName, String lastName, int gender, String address, String phoneNumber) {
         _id = generateID();

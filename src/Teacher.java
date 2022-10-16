@@ -15,7 +15,7 @@ public class Teacher extends Person {
 
     /**
      * Constructors
-     * */
+     */
 
     public Teacher(String firstName, String lastName, int gender, String address,
                    String phoneNumber, int department, int designation, int teachingHours) {
