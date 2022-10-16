@@ -11,18 +11,21 @@ public class Accounting {
     /**
      * Student Management Functions
      **/
-    public void addStudent(Student student) //Adds student to the list
+    //Adds student to the list
+    public void addStudent(Student student)
     {
         _students.add(student);
     }
 
-    public void updateStudent(int inputID, Student updatedInfo) //Updates student by ID with new information
+    //Updates student by ID with new information
+    public void updateStudent(int inputID, Student updatedInfo)
     {
         _students.replaceAll( e -> e.getID() == inputID? updatedInfo : e);
         System.out.println("Student updated successfully");
     }
 
-    public void showBalanceStudent(int id) //Display Balance of a student from ID
+    //Display Balance of a student from ID
+    public void showBalanceStudent(int id)
     {
         for (Student s : _students) {
             if (id == s.getID()){
@@ -41,7 +44,8 @@ public class Accounting {
         System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬═════════════╬═════════╬══════════════╣%n");
     }
 
-    public void feeDeposit(int id) //Gets the amount paid of the student
+    //Gets the amount paid of the student
+    public void feeDeposit(int id)
     {
         boolean found = false;
         Scanner scan = new Scanner(System.in);
@@ -70,7 +74,8 @@ public class Accounting {
         DisplayPersonHeader();
 
     }
-    public void displayAllZeroBalance() //Displays all students with zero balance
+    //Displays all students with zero balance
+    public void displayAllZeroBalance()
     {
         DisplayPersonHeader();
         displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n", "Amount Paid", "Balance", "Total Amount", "New Modules", "Repeated Modules", "Total Modules");
@@ -89,7 +94,8 @@ public class Accounting {
         System.out.printf(format, Amount_Paid, Balance, Total_Amount, New_Modules, Repeated_Modules, Total_Modules);
     }
 
-    public void displayAllNonZeroBalance() //Displays all students with non-zero balance
+    //Displays all students with non-zero balance
+    public void displayAllNonZeroBalance()
     {
         DisplayPersonHeader();
         displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n", "Amount Paid", "Balance", "Total Amount", "New Modules", "Repeated Modules", "Total Modules");
@@ -103,14 +109,16 @@ public class Accounting {
             }
         }
     }
-    public void deleteStudent(int inputID) //Deletes student from list by ID
+    //Deletes student from list by ID
+    public void deleteStudent(int inputID)
     {
         _students.removeIf(e -> (e.getID() == inputID));
         System.out.println("Student Deleted Successfully");
     }
 
 
-    public Student addStud()//Gets student's information
+    //Gets student's information
+    public Student addStud()
     {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the First Name of the Student: ");
@@ -144,7 +152,8 @@ public class Accounting {
     }
 
 
-    public void AddS()//Adds student to the list
+    //Adds student to the list
+    public void AddS()
     {
         addStudent(addStud());
         Main.Clear();
@@ -155,23 +164,27 @@ public class Accounting {
     /**
      * Teacher Management Functions
      * */
-    public void addTeacher(Teacher teacher)  //Adds teacher to the list
+    //Adds teacher to the list
+    public void addTeacher(Teacher teacher)
     {
         _teachers.add(teacher);
     }
 
-    public void updateTeacher(int ID, Teacher entry)//Searches for teacher by ID and updates the information
+    //Searches for teacher by ID and updates the information
+    public void updateTeacher(int ID, Teacher entry)
     {
         _teachers.replaceAll(e -> e.getID() == ID ? entry : e);
     }
 
-    public void deleteTeacher(int Id)  //Searches for teacher by ID and deletes the information
+    //Searches for teacher by ID and deletes the information
+    public void deleteTeacher(int Id)
     {
         _teachers.removeIf(entry -> entry.getID() == Id);
         System.out.println("Teacher Deleted Successfully");
     }
 
-    public void calculateSalary(int Id) //Searches for teacher by ID and calculates the salary
+    //Searches for teacher by ID and calculates the salary
+    public void calculateSalary(int Id)
     {
         boolean found = false;
         for (Teacher t : _teachers) {
@@ -184,12 +197,6 @@ public class Accounting {
                 System.out.printf("MA = %.2f%n", t.getMa());
                 System.out.printf("TA = %.2f%n", t.getTa());
                 System.out.println("Net Salary is " + t.getSalary());
-//                DisplayPersonHeader();
-//                System.out.printf("║ %-10s ║ %13s   ║ %7s  ║ %3s ║%n", "Department", "Designation", "Salary", "Hrs");
-//                System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬════════════╬═════════════════╬══════════╬═════╣%n");
-//                t.displayTeacher();
-//                System.out.println("Salary Calculated");
-//                System.out.println("Salary: " + t.getSalary());
             }
         }
         if (!found){
@@ -202,7 +209,8 @@ public class Accounting {
         displayAllStudentsHeader("║ %6s     ║ %-10s ║ %11s   ║ %-6s ║ %9s   ║ %7s    ", "ID", "First Name", "Last Name", "Gender", "Address", "Phone");
     }
 
-    public void viewAllTeachers() //Displays all teachers
+    //Displays all teachers
+    public void viewAllTeachers()
     {
         DisplayPersonHeader();
         System.out.printf("║ %-10s ║ %13s   ║ %7s  ║ %3s ║%n", "Department", "Designation", "Salary", "Hrs");
@@ -218,7 +226,8 @@ public class Accounting {
         System.out.println("Teacher Added");
     }
 
-    public Teacher addTeach() //Gets teacher's information
+    //Gets teacher's information
+    public Teacher addTeach()
     {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the First Name of the teacher: ");

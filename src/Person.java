@@ -18,15 +18,10 @@ public class Person {
 	/**
 	 * Display Function
 	 * */
-	public void DisplayPerson() //Displays the attributes of the class Person
+	//Displays the attributes of the class Person
+	public void DisplayPerson()
 	{
 		System.out.printf("║ %-10d ║ %-10s ║ %-13s ║ %-6s ║ %-11s ║ %10s ", _id, _firstName, _lastName, _genCon[_gender - 1], _address, _phoneNo);
-//		System.out.println("ID: " + _id);
-//		System.out.println("First Name: " + _firstName);
-//		System.out.println("Last Name: " + _lastName);
-//		System.out.println("Gender: " + _genCon[_gender - 1]);
-//		System.out.println("Address: " + _address);
-//		System.out.println("Phone Number: " + _phoneNo);
 	}
 
 	/**
@@ -37,12 +32,8 @@ public class Person {
 	int year = (d.getYear() + 1900) * 1000000;
 	private static AtomicLong idCounter = new AtomicLong();
 
-//	public static String createID() //Makes sures that the id genereated is unique
-//	{
-//		return String.valueOf(idCounter.getAndIncrement());
-//	}
-
-	public int generateID() //Generates the unique ID
+	//Generates the unique ID
+	public int generateID()
 	{
 		return (int) (year + idCounter.getAndIncrement());
 	}

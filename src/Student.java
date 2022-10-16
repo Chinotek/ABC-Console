@@ -3,7 +3,8 @@ public class Student extends Person
     private int numberOfModules, numberOfRepeatedModules, numberOfNewModules;
     private float amountPaid, balance, totalAmount, subTotalRepeatModules, subTotalNewModules;
 
-    private String[] moduleNames = //array of module names
+    //array of module names
+    private String[] moduleNames =
             {
                     "Introduction to Computing", "Computer Programming 1", "Introduction to Human Computer Interaction",
                     "Computer Programming 2", "Data Structures and Algorithm", "Professional Development",
@@ -126,19 +127,22 @@ public class Student extends Person
     /**
      * Computational Functions
      */
-    public void computeTotalAmount() //Computes the total amount to be paid
+    //Computes the total amount to be paid
+    public void computeTotalAmount()
     {
         subTotalNewModules = 525 * numberOfNewModules;
         subTotalRepeatModules = 110 * numberOfRepeatedModules;
         totalAmount = subTotalNewModules + subTotalRepeatModules;
     }
 
-    public void computeNumberOfModules() // adds the new and repeated modules
+    // adds the new and repeated modules
+    public void computeNumberOfModules()
     {
         this.numberOfModules = this.numberOfNewModules + this.numberOfRepeatedModules;
     }
 
-    public void computeBalance() //computes the remaining balance to be paid
+    //computes the remaining balance to be paid
+    public void computeBalance()
     {
 
         this.balance = (float) (totalAmount - amountPaid);
@@ -153,15 +157,10 @@ public class Student extends Person
         System.out.printf("║ %11.2f ║ %7s ║ %12.2f ║%n",amountPaid, balance, totalAmount);
     }
 
-    public void displayStudentInfo()// Displays the attributes of the Student class
+    // Displays the attributes of the Student class
+    public void displayStudentInfo()
     {
         DisplayPerson();
         System.out.printf("║ %11.2f ║ %7s ║ %12.2f ║ %6d      ║ %8d         ║ %7d       ║%n",amountPaid, balance, totalAmount, numberOfNewModules , numberOfRepeatedModules, numberOfModules);
-//        System.out.println("Amount Paid: " + amountPaid);
-//        System.out.println("Balance: " + balance);
-//        System.out.println("Total Amount: " + totalAmount);
-//        System.out.println("New Modules: " + numberOfNewModules);
-//        System.out.println("Repeated Modules: " + numberOfRepeatedModules);
-//        System.out.println("Total Modules: " + numberOfModules);
     }
 }
