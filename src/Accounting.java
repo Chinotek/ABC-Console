@@ -145,10 +145,10 @@ public class Accounting {
         String address = scanner.nextLine();
         int repeatModules;
         int newModules = 0;
+        int totalModules = 0;
         do {
             System.out.print("Enter the Number of Repeat Modules of the Student (cannot be more than 2): ");
             repeatModules = scanner.nextInt();
-            int totalModules;
             if (repeatModules < 3) {
                 do {
                     totalModules = repeatModules;
@@ -159,7 +159,7 @@ public class Accounting {
                     totalModules += newModules;
                 } while (totalModules > 6 || totalModules < 0);
             }
-        } while (repeatModules < 3);
+        } while (repeatModules < 3 && totalModules > 6);
         return new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
     }
 
