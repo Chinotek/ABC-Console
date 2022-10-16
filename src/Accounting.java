@@ -3,7 +3,6 @@ import java.util.List;
 import java.util.Scanner;
 
 
-
 public class Accounting {
     private List<Teacher> _teachers = new ArrayList<Teacher>();
     private List<Student> _students = new ArrayList<Student>();
@@ -12,23 +11,20 @@ public class Accounting {
      * Student Management Functions
      **/
     //Adds student to the list
-    public void addStudent(Student student)
-    {
+    public void addStudent(Student student) {
         _students.add(student);
     }
 
     //Updates student by ID with new information
-    public void updateStudent(int inputID, Student updatedInfo)
-    {
-        _students.replaceAll( e -> e.getID() == inputID? updatedInfo : e);
+    public void updateStudent(int inputID, Student updatedInfo) {
+        _students.replaceAll(e -> e.getID() == inputID ? updatedInfo : e);
         System.out.println("Student updated successfully");
     }
 
     //Display Balance of a student from ID
-    public void showBalanceStudent(int id)
-    {
+    public void showBalanceStudent(int id) {
         for (Student s : _students) {
-            if (id == s.getID()){
+            if (id == s.getID()) {
                 s.computeNumberOfModules();
                 s.computeTotalAmount();
                 s.computeBalance();
@@ -41,18 +37,17 @@ public class Accounting {
     private void displayStudentBalanceOnly() {
         DisplayPersonHeader();
         displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║%n", "Amount Paid", "Balance",
-                            "Total Amount", "", "", "");
+                "Total Amount", "", "", "");
         System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬" +
-                          "═════════════╬═════════╬══════════════╣%n");
+                "═════════════╬═════════╬══════════════╣%n");
     }
 
     //Gets the amount paid of the student
-    public void feeDeposit(int id)
-    {
+    public void feeDeposit(int id) {
         boolean found = false;
         Scanner scan = new Scanner(System.in);
         for (Student s : _students) {
-            if (id == s.getID()){
+            if (id == s.getID()) {
                 displayStudentBalanceOnly();
                 s.displayBalance();
                 System.out.print("Enter Amount of Payment: ");
@@ -70,26 +65,26 @@ public class Accounting {
 
     public void displayAllStudentsHeaderNeck() {
         System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬" +
-                          "═════════════╬═════════╬══════════════╬═════════════╬══════════════════╬═══════════════╣%n");
+                "═════════════╬═════════╬══════════════╬═════════════╬══════════════════╬═══════════════╣%n");
     }
 
     public void displayStudentBalanceHeader() {
         DisplayPersonHeader();
 
     }
+
     //Displays all students with zero balance
-    public void displayAllZeroBalance()
-    {
+    public void displayAllZeroBalance() {
         DisplayPersonHeader();
         displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n",
-                            "Amount Paid", "Balance", "Total Amount",
-                            "New Modules", "Repeated Modules", "Total Modules");
+                "Amount Paid", "Balance", "Total Amount",
+                "New Modules", "Repeated Modules", "Total Modules");
         displayAllStudentsHeaderNeck();
         for (Student s : _students) {
             s.computeNumberOfModules();
             s.computeTotalAmount();
             s.computeBalance();
-            if (s.getAmountBalance() == 0){
+            if (s.getAmountBalance() == 0) {
                 s.displayStudentInfo();
             }
         }
@@ -101,8 +96,7 @@ public class Accounting {
     }
 
     //Displays all students with non-zero balance
-    public void displayAllNonZeroBalance()
-    {
+    public void displayAllNonZeroBalance() {
         DisplayPersonHeader();
         displayAllStudentsHeader("║ %-11s ║ %-7s ║ %-12s ║ %-11s ║ %-16s ║ %-13s ║%n",
                 "Amount Paid", "Balance", "Total Amount",
@@ -112,22 +106,21 @@ public class Accounting {
             s.computeNumberOfModules();
             s.computeTotalAmount();
             s.computeBalance();
-            if (s.getAmountBalance() != 0){
-               s.displayStudentInfo();
+            if (s.getAmountBalance() != 0) {
+                s.displayStudentInfo();
             }
         }
     }
+
     //Deletes student from list by ID
-    public void deleteStudent(int inputID)
-    {
+    public void deleteStudent(int inputID) {
         _students.removeIf(e -> (e.getID() == inputID));
         System.out.println("Student Deleted Successfully");
     }
 
 
     //Gets student's information
-    public Student addStud()
-    {
+    public Student addStud() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the First Name of the Student: ");
         String firstName = scanner.nextLine();
@@ -161,8 +154,7 @@ public class Accounting {
 
 
     //Adds student to the list
-    public void AddS()
-    {
+    public void AddS() {
         addStudent(addStud());
         Main.Clear();
         System.out.printf("Student Added with ID: %d%n", _students.get(_students.size() - 1).getID());
@@ -171,32 +163,28 @@ public class Accounting {
 
     /**
      * Teacher Management Functions
-     * */
+     */
     //Adds teacher to the list
-    public void addTeacher(Teacher teacher)
-    {
+    public void addTeacher(Teacher teacher) {
         _teachers.add(teacher);
     }
 
     //Searches for teacher by ID and updates the information
-    public void updateTeacher(int ID, Teacher entry)
-    {
+    public void updateTeacher(int ID, Teacher entry) {
         _teachers.replaceAll(e -> e.getID() == ID ? entry : e);
     }
 
     //Searches for teacher by ID and deletes the information
-    public void deleteTeacher(int Id)
-    {
+    public void deleteTeacher(int Id) {
         _teachers.removeIf(entry -> entry.getID() == Id);
         System.out.println("Teacher Deleted Successfully");
     }
 
     //Searches for teacher by ID and calculates the salary
-    public void calculateSalary(int Id)
-    {
+    public void calculateSalary(int Id) {
         boolean found = false;
         for (Teacher t : _teachers) {
-            if (Id == t.getID()){
+            if (Id == t.getID()) {
                 found = true;
                 System.out.println("Base Salary: " + 1200);
                 System.out.println("Teaching hours: " + t.getTeachingHours());
@@ -207,39 +195,35 @@ public class Accounting {
                 System.out.println("Net Salary is " + t.getSalary());
             }
         }
-        if (!found){
+        if (!found) {
             System.out.println("Teacher Not Found");
         }
     }
 
-    public void DisplayPersonHeader()
-    {
+    public void DisplayPersonHeader() {
         displayAllStudentsHeader("║ %6s     ║ %-10s ║ %11s   ║ %-6s ║ %9s   ║ %7s    ",
                 "ID", "First Name", "Last Name", "Gender",
-            "Address", "Phone");
+                "Address", "Phone");
     }
 
     //Displays all teachers
-    public void viewAllTeachers()
-    {
+    public void viewAllTeachers() {
         DisplayPersonHeader();
         System.out.printf("║ %-10s ║ %13s   ║ %7s  ║ %3s ║%n", "Department", "Designation", "Salary", "Hrs");
         System.out.printf("╠════════════╬════════════╬═══════════════╬════════╬═════════════╬════════════╬" +
-                          "════════════╬═════════════════╬══════════╬═════╣%n");
+                "════════════╬═════════════════╬══════════╬═════╣%n");
         for (Teacher entry : _teachers) {
             entry.displayTeacher();
         }
     }
 
-    public void addTeacher()
-    {
+    public void addTeacher() {
         addTeacher(addTeach());
         System.out.println("Teacher Added");
     }
 
     //Gets teacher's information
-    public Teacher addTeach()
-    {
+    public Teacher addTeach() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter the First Name of the teacher: ");
         String firstName = scanner.next();

@@ -23,11 +23,10 @@ public class Teacher extends Person {
     }
 
     /**
-    * Computational Functions
-    **/
+     * Computational Functions
+     **/
 
-    public void calculateSalary()
-    {
+    public void calculateSalary() {
         if (_designation == 1) {
             //Head of Faculty
             if (_teachingHours > 8) {
@@ -52,27 +51,26 @@ public class Teacher extends Person {
         }
 
         _salary += _ot;
-        _ha = _salary *  0.1f;
+        _ha = _salary * 0.1f;
         _ma = _salary * 0.03f;
         _ta = _salary * 0.05f;
-        _salary += _ha +_ma+_ta;
+        _salary += _ha + _ma + _ta;
 
     }
 
     /**
      * Display Function
-     * */
+     */
 
-    public void displayTeacher()
-    {
+    public void displayTeacher() {
         DisplayPerson();
         System.out.printf("║ %-10s ║ %-15s ║ %8.2f ║ %-3d ║%n",
-                            conDep[_department - 1], conDes[_designation - 1], _salary, _teachingHours);
+                conDep[_department - 1], conDes[_designation - 1], _salary, _teachingHours);
     }
 
     /**
-    * Getters
-    **/
+     * Getters
+     **/
 
     public double getMa() {
         return _ma;
@@ -84,7 +82,7 @@ public class Teacher extends Person {
     }
 
 
-    public float  getHa() {
+    public float getHa() {
         return _ha;
     }
 
@@ -111,14 +109,16 @@ public class Teacher extends Person {
 
     /**
      * Setters
-    **/
+     **/
 
     public void setDepartment(int department) {
         _department = department;
     }
+
     public void set_Ma(float _ma) {
         this._ma = _ma;
     }
+
     public void setTa(float _ta) {
         this._ta = _ta;
     }
@@ -130,6 +130,7 @@ public class Teacher extends Person {
     public void setHa(float _ha) {
         this._ha = _ha;
     }
+
     public void setSalary(int salary) {
         _salary = salary;
     }
