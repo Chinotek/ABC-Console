@@ -121,8 +121,7 @@ public class Main {
                         Pause();
                     } else if (choice == 5) {
                         accounting.displayAllStudents(true, false);
-                        System.out.print("Enter the ID of the student: ");
-                        id = scanner.nextInt();
+                        id = accounting.inputInt("Enter the ID of the student: ");
                         accounting.feeDeposit(id);
                         Pause();
                     } else if (choice == 6) {
@@ -161,21 +160,19 @@ public class Main {
                         Clear();
                     } else if (choice == 2) {
                         accounting.viewAllTeachers();
-                        System.out.print("Enter the ID of the teacher you want to update: ");
-                        id = scanner.nextInt();
+                        id = accounting.inputInt("Enter the ID of the teacher you want to update: ");
                         accounting.checkId(id, false, true);
                         Pause();
                         Clear();
                     } else if (choice == 3) {
                         accounting.viewAllTeachers();
-                        System.out.print("Enter the ID of the teacher you want to delete: ");
-                        id = scanner.nextInt();
+                        id = accounting.inputInt("Enter the ID of the teacher you want to delete: ");
                         accounting.checkId(id, true, true);
                         Pause();
                         Clear();
                     } else if (choice == 4) {
                         System.out.print("Enter the ID of teacher: ");
-                        id = scanner.nextInt();
+                        id = accounting.inputInt("Enter the ID of teacher: ");
                         accounting.calculateSalary(id);
                         Pause();
                         Clear();

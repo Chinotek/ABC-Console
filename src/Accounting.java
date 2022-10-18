@@ -135,31 +135,21 @@ public class Accounting {
     //Gets student's information and add to the list
     public Student addStud() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the First Name of the Student: ");
-        String firstName = scanner.nextLine();
-        System.out.print("Enter the Last Name of the Student: ");
-        String lastName = scanner.nextLine();
-        System.out.print("Enter the Gender of the Student [1]M | [2]F: ");
-        int gender = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Enter the Phone Number of the Student: ");
-        String phoneNo = scanner.nextLine();
-        System.out.print("Enter the Address of the Student: ");
-        String address = scanner.nextLine();
+        String firstName = inputString("Enter the First Name of the Student: ", false);
+        String lastName = inputString("Enter the Last Name of the Student: ", false);
+        int gender = inputInt("Enter the Gender of the Student [1]M | [2]F: ", false);
+        String phoneNo = inputString("Enter the Phone Number of the Student: ", true);
+        String address = inputString("Enter the Address of the Student: ");
         int repeatModules;
         int newModules = 0;
         int totalModules = 0;
         do {
-            System.out.print("Enter the Number of Repeat Modules of the Student: ");
-            repeatModules = scanner.nextInt();
-            scanner.nextLine();
+            repeatModules = inputInt("Enter the Number of Repeat Modules of the Student: ");
             if (repeatModules < 3 && repeatModules >= 0) {
                 do {
                     totalModules = repeatModules;
-                    System.out.print("Enter the Number of New Modules of the Student " +
+                    newModules = inputInt("Enter the Number of New Modules of the Student " +
                             "(total modules cannot be more than 6): ");
-                    newModules = scanner.nextInt();
-                    scanner.nextLine();
                     totalModules += newModules;
                 } while (totalModules > 6 || totalModules < 0);
             }
@@ -170,29 +160,21 @@ public class Accounting {
     //get new information and update existing student record by id
     public Student updateStud(int id) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the First Name of the Student: ");
-        String firstName = scanner.nextLine();
-        System.out.print("Enter the Last Name of the Student: ");
-        String lastName = scanner.nextLine();
-        System.out.print("Enter the Gender of the Student [1]M | [2]F: ");
-        int gender = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Enter the Phone Number of the Student: ");
-        String phoneNo = scanner.nextLine();
-        System.out.print("Enter the Address of the Student: ");
-        String address = scanner.nextLine();
+        String firstName = inputString("Enter the First Name of the Student: ", false);
+        String lastName = inputString("Enter the Last Name of the Student: ", false);
+        int gender = inputInt("Enter the Gender of the Student [1]M | [2]F: ", false);
+        String phoneNo = inputString("Enter the Phone Number of the Student: ", true);
+        String address = inputString("Enter the Address of the Student: ");
         int repeatModules;
         int newModules = 0;
         do {
-            System.out.print("Enter the Number of Repeat Modules of the Student: ");
-            repeatModules = scanner.nextInt();
+            repeatModules = inputInt("Enter the Number of Repeat Modules of the Student: ");
             int totalModules;
             if (repeatModules < 3) {
                 do {
                     totalModules = repeatModules;
-                    System.out.print("Enter the Number of New Modules of the Student: ");
-                    newModules = scanner.nextInt();
-                    scanner.nextLine();
+                    newModules = inputInt("Enter the Number of New Modules of the Student " +
+                            "(total modules cannot be more than 6): ");
                     totalModules += newModules;
                 } while (totalModules > 6 || totalModules < 0);
             }
@@ -277,26 +259,14 @@ public class Accounting {
     //Gets teacher's information
     public Teacher addTeach() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the First Name of the teacher: ");
-        String firstName = scanner.next();
-        scanner.nextLine();
-        System.out.print("Enter the Last Name of the teacher: ");
-        String lastName = scanner.next();
-        scanner.nextLine();
-        System.out.print("Enter the Gender of the teacher [1]M | [2]F: ");
-        int gender = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Enter the Phone Number of the teacher: ");
-        String phoneNo = scanner.nextLine();
-        System.out.print("Enter the Address of the teacher: ");
-        String address = scanner.next();
-        scanner.nextLine();
-        System.out.print("[1] for Computing \n[2] for Business \nEnter the department of the teacher: ");
-        int department = scanner.nextInt();
-        System.out.print("[1] Head of Faculty\n[2] Coordinator\n[3] Lecturer\nEnter the designation of the teacher: ");
-        int designation = scanner.nextInt();
-        System.out.print("Enter Number of Teaching Hours: ");
-        int teachingHours = scanner.nextInt();
+        String firstName = inputString("Enter the First Name of the teacher: ", false);
+        String lastName = inputString("Enter the Last Name of the teacher: ", false);
+        int gender = inputInt("Enter the Gender of the teacher [1]M | [2]F: ", false);
+        String phoneNo = inputString("Enter the PhoneNo of the teacher: ", true);
+        String address = inputString("Enter the Address of the teacher: ");
+        int department = inputInt("[1] for Computing \n[2] for Business \nEnter the department of the teacher: ", false);
+        int designation = inputInt("[1] Head of Faculty\n[2] Coordinator\n[3] Lecturer\nEnter the designation of the teacher: ", true);
+        int teachingHours = inputInt("Enter Number of Teaching Hours: ");
 
         return new Teacher(firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
     }
@@ -304,26 +274,14 @@ public class Accounting {
     //get new information and update existing teacher information by id
     public Teacher updateTeach(int id) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the First Name of the teacher: ");
-        String firstName = scanner.next();
-        scanner.nextLine();
-        System.out.print("Enter the Last Name of the teacher: ");
-        String lastName = scanner.next();
-        scanner.nextLine();
-        System.out.print("Enter the Gender of the teacher [1]M | [2]F: ");
-        int gender = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Enter the Phone Number of the teacher: ");
-        String phoneNo = scanner.nextLine();
-        System.out.print("Enter the Address of the teacher: ");
-        String address = scanner.next();
-        scanner.nextLine();
-        System.out.print("[1] for Computing \n[2] for Business \nEnter the department of the teacher: ");
-        int department = scanner.nextInt();
-        System.out.print("[1] Head of Faculty\n[2] Coordinator\n[3] Lecturer\nEnter the designation of the teacher: ");
-        int designation = scanner.nextInt();
-        System.out.print("Enter Number of Teaching Hours: ");
-        int teachingHours = scanner.nextInt();
+        String firstName = inputString("Enter the First Name of the teacher: ", false);
+        String lastName = inputString("Enter the Last Name of the teacher: ", false);
+        int gender = inputInt("Enter the Gender of the teacher [1]M | [2]F: ", false);
+        String phoneNo = inputString("Enter the Phone Number of the teacher: ", true);
+        String address = inputString("Enter the Address of the teacher: ");
+        int department = inputInt("[1] for Computing \n[2] for Business \nEnter the department of the teacher: ", false);
+        int designation = inputInt("[1] Head of Faculty\n[2] Coordinator\n[3] Lecturer\nEnter the designation of the teacher: ", true);
+        int teachingHours = inputInt("Enter Number of Teaching Hours");
 
         return new Teacher(id, firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
 
@@ -332,6 +290,90 @@ public class Accounting {
     /**
      * Entry Validation
      */
+
+    public int inputInt(String prompt) {
+        Scanner scanner = new Scanner(System.in);
+        int input = 0;
+        boolean invalid = true;
+        do {
+            try {
+                System.out.print(prompt);
+                input = scanner.nextInt();
+                invalid = input < 0;
+                if (invalid) {
+                    System.out.println("Cannot be negative");
+                }
+
+            } catch (Exception e) {
+                invalid = true;
+                System.out.println("Invalid Input");
+                scanner.nextLine();
+            }
+        } while (invalid);
+
+        return input;
+    }
+
+    public int inputInt(String prompt, boolean til3) {
+        Scanner scanner = new Scanner(System.in);
+        int input  = 0;
+        boolean invalid = true;
+        do {
+            try {
+                if (til3) {
+                    do {
+                        System.out.print(prompt);
+                        input = scanner.nextInt();
+                        invalid = input < 1 || input > 3;
+                    } while (invalid);
+                } else {
+                    do {
+                        System.out.print(prompt);
+                        input = scanner.nextInt();
+                        invalid = input < 1 || input > 2;
+                    } while (invalid);
+                }
+            } catch (Exception e) {
+                invalid = true;
+                System.out.println("\nInput must be a number");
+                scanner.nextLine();
+            }
+        } while (invalid);
+        return input;
+    }
+    public String inputString(String prompt) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print(prompt);
+        return scanner.nextLine();
+    }
+    public String inputString(String prompt, boolean aNumber) {
+        Scanner scanner = new Scanner(System.in);
+        String input;
+        boolean invalid = true;
+        if (aNumber) {
+            do {
+                System.out.print(prompt);
+                input = scanner.nextLine();
+                invalid = !input.matches("\\d{10}");
+                if (invalid) {
+                    System.out.println("\nPhone Number must be 10 digits");
+                }
+            } while (invalid);
+        } else {
+            do {
+                System.out.print(prompt);
+                input = scanner.nextLine();
+                invalid = input.matches(".*\\d.*");
+                if (invalid) {
+                    System.out.println("\nInput cannot contain numbers");
+                } else if (input.matches("^[\\s\\n\\r]*$")) {
+                    invalid = true;
+                    System.out.println("\nInput cannot be empty");
+                }
+            } while (invalid);
+        }
+        return input;
+    }
 
     //checks if ID exists in the lists and decides whether to add an entry to the list or update an entry
     public void checkId(int id, boolean delete, boolean teacher) {
