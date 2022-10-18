@@ -100,23 +100,20 @@ public class Main {
                     choice = scanner.nextInt();
                     Clear();
                     if (choice == 1) {
-                        accounting.AddS();
+                        accounting.addStudent();
                     } else if (choice == 2) {
                         accounting.displayAllStudents(true, false);
-                        System.out.print("Enter the ID of the Student: ");
-                        id = scanner.nextInt();
+                        id = accounting.inputInt("Enter the ID of the Student: ");
                         accounting.checkId(id, false, false);
                         Pause();
                     } else if (choice == 3) {
                         accounting.displayAllStudents(true, false);
-                        System.out.print("Enter the ID of the student: ");
-                        id = scanner.nextInt();
+                        id = accounting.inputInt("Enter the ID of the student: ");
                         accounting.checkId(id, true, false);
                         Pause();
                     } else if (choice == 4) {
                         accounting.displayAllStudents(true, false);
-                        System.out.print("Enter the ID of the student: ");
-                        id = scanner.nextInt();
+                        id = accounting.inputInt("Enter the ID of the student: ");
                         accounting.showBalanceStudent(id);
                         Pause();
                     } else if (choice == 5) {
@@ -171,7 +168,7 @@ public class Main {
                         Pause();
                         Clear();
                     } else if (choice == 4) {
-                        System.out.print("Enter the ID of teacher: ");
+                        accounting.viewAllTeachers();
                         id = accounting.inputInt("Enter the ID of teacher: ");
                         accounting.calculateSalary(id);
                         Pause();
