@@ -151,11 +151,11 @@ public class Accounting {
             if (repeatModules < 3) {
                 do {
                     newModules = inputInt("Enter the Number of New Modules" +
-                            "(total modules up to 6): ");
-                    totalModules += newModules;
-                } while (totalModules > 6 || totalModules < 0);
+                            "(total modules up to 6): ");                  
+                } while (repeatModules + newModules > 6 || repeatModules + newModules < 0);
+                totalModules += newModules;
             }
-        } while (totalModules > 6);
+        } while (totalModules > 6 || totalModules < 0);
 
         if (id == 0) {
             return new Student(firstName, lastName, gender, address, phoneNo, newModules, repeatModules);
