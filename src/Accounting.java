@@ -57,6 +57,7 @@ public class Accounting {
                 int amount = scan.nextInt();
                 s.setAmountPaid(s.getAmountPaid() + amount);
                 s.computeBalance();
+                s.balanceCheck();
                 System.out.println("Fee Deposit Successful!");
                 found = true;
             }

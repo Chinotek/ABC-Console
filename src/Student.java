@@ -1,6 +1,6 @@
 public class Student extends Person {
     private int numberOfModules, numberOfRepeatedModules, numberOfNewModules;
-    private float amountPaid, balance, totalAmount, subTotalRepeatModules, subTotalNewModules;
+    private float amountPaid, balance, totalAmount, subTotalRepeatModules, subTotalNewModules, change;
 
     //array of module names
     private String[] moduleNames = {
@@ -144,8 +144,20 @@ public class Student extends Person {
 
     //computes the remaining balance to be paid
     public void computeBalance() {
-
         this.balance = (float) (totalAmount - amountPaid);
+    }
+    
+    //Prints the change if Balance < 0 and sets amountPaid = totalAmount else, do nothing. 
+    public void balanceCheck() {
+    	if (this.balance < 0) {
+    		this.change = Math.abs(this.balance);
+    		System.out.println("Change: " + this.change);
+    		amountPaid = totalAmount;
+    	}
+    	else
+    	{
+    		this.change = 0f;
+    	}
     }
 
     /**
