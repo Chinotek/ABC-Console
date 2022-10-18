@@ -244,14 +244,20 @@ public class Accounting {
         int gender = inputInt("Enter the Gender of the teacher [1]M | [2]F: ", false);
         String phoneNo = inputString("Enter the Phone Number of the teacher: ", true);
         String address = inputString("Enter the Address of the teacher: ");
-        int department = inputInt("[1] for Computing \n[2] for Business \nEnter the department of the teacher: ", false);
-        int designation = inputInt("[1] Head of Faculty\n[2] Coordinator\n[3] Lecturer\nEnter the designation of the teacher: ", true);
+        int department = inputInt("[1] for Computing \n" +
+                                         "[2] for Business \n" +
+                                         "Enter the department of the teacher: ", false);
+        int designation = inputInt("[1] Head of Faculty\n" +
+                                          "[2] Coordinator\n" +
+                                          "[3] Lecturer\nEnter the designation of the teacher: ", true);
         int teachingHours = inputInt("Enter Number of Teaching Hours: ");
 
         if (id == 0) {
-            return new Teacher(firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
+            return new Teacher(firstName, lastName, gender, address, phoneNo,
+                               department, designation, teachingHours);
         } else {
-            return new Teacher(id, firstName, lastName, gender, address, phoneNo, department, designation, teachingHours);
+            return new Teacher(id, firstName, lastName, gender, address, phoneNo,
+                               department, designation, teachingHours);
         }
     }
 
